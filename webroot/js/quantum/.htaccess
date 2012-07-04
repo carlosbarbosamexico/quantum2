@@ -1,0 +1,6 @@
+Options +FollowSymLinks
+
+RewriteEngine on
+
+RewriteRule ^/?Quantum.min.js  Quantum.min.php [QSA,L]
+RewriteRule ^/?Quantum.js  Quantum.js.php [QSA,L]
