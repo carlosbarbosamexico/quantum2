@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 exec php -q teleport.php "$@"
 
 exit;
