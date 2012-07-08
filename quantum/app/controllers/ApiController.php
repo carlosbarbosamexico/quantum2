@@ -11,7 +11,7 @@ class ApiController extends Quantum {
     
     function member() {
         
-        if (!isset($_REQUEST['code'])) {
+        if (!isset($this->requestData['id'])) {
             Quantum\ApiException::invalidParameters();
         }
        
