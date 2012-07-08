@@ -52,8 +52,39 @@ class Config {
             break;
         }
 	
-        
+        $this->environment = $development;
         return false;
+    
+    }
+    
+    public function domainBasedAutoConfig() {
+	
+	require_once($this->quantum_root.'config/environment.php');
+	
+	$development = (object)$QUANTUM_ENVIRONMENT['development'];
+	$staging = (object)$QUANTUM_ENVIRONMENT['staging'];
+	$production = (object)$QUANTUM_ENVIRONMENT['production'];
+	$current_domain = $_SERVER['SERVER_NAME'];
+	
+	if ($development->domain === $current_domain) {
+	
+	    $this->environment = $development;
+	    return true;
+	
+	} elseif ($staging->domain === $current_domain){
+	    
+	    $this->environment = $staging;
+	    return true;
+	
+	} elseif ($production->domain === $current_domain){
+	    
+	    $this->environment = $staging;
+	    return true;
+	
+	}
+	
+	$this->environment = $development;
+	return false;
     
     }
     
