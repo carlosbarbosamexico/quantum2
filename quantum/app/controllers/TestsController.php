@@ -12,16 +12,12 @@ class TestsController extends Quantum {
      */
     
     function __construct() {
-         //var_dump($this);
-         //$this->template = 'app';
-        // var_dump($this);
         
-        //pr($this);
     }
     
     function index() {
-        //var_dump($this);
-        pr($this);
+        
+		pr($this);
         $this->set('somevar', $somevar = 100);
         
     }
@@ -36,8 +32,8 @@ class TestsController extends Quantum {
     }
     
     function password() {
-        //var_dump($this);
-        $this->autoRender = false;
+        
+		$this->autoRender = false;
         echo $this->requestData['s'].'<br/>';
         echo $this->environment->system_salt.'<br/>';
         

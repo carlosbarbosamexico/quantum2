@@ -9,27 +9,13 @@
 
 class ApiController extends Quantum {
     
-    /*
-     * __construct()
-     * @param $arg
-     */
-    
-    function index() {
-        $this->set('title_for_layout', 'Data and Insights');
-          
-    }
-    
-    /**
-     * Example of user api endpoint:
-     * You should access it as /api/member?code=FBPWEFW
-    */
     function member() {
         
         if (!isset($_REQUEST['code'])) {
             Quantum\ApiException::invalidParameters();
         }
        
-       $member = Member::find_by_promo_code($_REQUEST['code']);
+       $member = Member::find_by_id($this->requestData['id']);
        
         if (empty($member)) {
             Quantum\ApiException::resourceNotFound();
@@ -37,11 +23,6 @@ class ApiController extends Quantum {
         
         $data['first_name'] = $member->first_name;
         $data['last_name'] = $member->last_name;
-        $data['promo_code'] = $member->promo_code;
-        $data['promo_code_hash'] = to_password($member->promo_code, $this->environment->system_salt); 
-        $data['language'] = $member->language;
-        $data['email'] = $member->email;
-        $data['facebook'] = $member->facebook;
         $data['created_at'] = strtotime($member->created_at);
         $data['updated_at'] = strtotime($member->updated_at);
         
