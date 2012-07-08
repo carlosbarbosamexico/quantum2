@@ -1,4 +1,3 @@
-
 <?
 
 /*
@@ -12,6 +11,8 @@ class AppController extends Quantum {
     */
     public function index() {
       
+		
+		echo "hola amigo";
       
     }
     

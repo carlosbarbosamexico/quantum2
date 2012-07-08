@@ -1,6 +1,4 @@
- <?
-
-
+<?
 class Quantum  {
    
     private $controller;
@@ -10,7 +8,6 @@ class Quantum  {
     private $state;
     public $csrf;
     public $activeController;
-    
     public $root_folder;
     public $quantum_root;
     public $app_root;
@@ -20,17 +17,13 @@ class Quantum  {
     public $filters_root;
     public $helpers_root;
     public $templates_root;
-    
     public $system_root;
     public $system_controllers_root;
     public $system_helpers_root;
-    
-    
     public $config_root;
     public $lib_root;
     public $tmp_root;
     public $public_root;
-    
     public $environment;
     public $app_config;
     public $smarty;
@@ -44,35 +37,21 @@ class Quantum  {
     public $version;
     public $requestUrl;
     
-    
-    
-
     //Public API;
     
     /**
      * Meta class for booting Quantum,
-     * you can remove the output class and implement it manually
+     *
     */
     
     public function __construct() {
         
-        
-        
         $this->initQuantum();
-        
         $this->loadHelpers();
-        
-        
-
-    }
+     }
     
-    /**
-     * This reads the configuration
-     * from the environment.php file
-     * located in /quantum/config
-    */
     
-    public function setConfig($environment) {
+	public function setConfig($environment) {
        
         switch($environment) {
             
@@ -100,7 +79,6 @@ class Quantum  {
         
         return false;
     }
-    
     
     
     public function setTemplate($template_name) {
@@ -158,7 +136,11 @@ class Quantum  {
     }
     
     
-    
+    public function autoConfig() {
+               
+        Quantum\Config::domainBasedAutoConfig();
+        
+    }
     
     
     
@@ -216,10 +198,10 @@ class Quantum  {
         
     }
     
-    /**
-     * We get the data of the .htaccess with this function and assign it to quantum
-    */
+    
+    
     private function setQuantumVars() {
+        
         if (!empty($_REQUEST['controller'])) {
             
             $this->controller = $_REQUEST['controller'];
@@ -241,9 +223,6 @@ class Quantum  {
         
     }
     
-    /**
-     * We set up the autoloader
-    */
     private function setAutoLoader() {
         
         spl_autoload_register(array('self', 'autoLoader'));
@@ -296,7 +275,7 @@ class Quantum  {
                     $path = $directory.sprintf($fileNameFormat, $className);
                     if(file_exists($path)){
                         //echo ('loading: '.$path);
-                        include $path;
+                        require_once $path;
                         return;
                     }
                 }
@@ -402,8 +381,6 @@ class Quantum  {
         
         $this->activeController = $c;
         
-        
-        
         if (method_exists($c, $task)) {
             $reflection = new ReflectionMethod($c, $task);
             
@@ -426,7 +403,6 @@ class Quantum  {
             Quantum\Output::setView($this->controller, 'index');
         }
       
-        
 
     }
     

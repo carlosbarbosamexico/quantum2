@@ -13,9 +13,7 @@ class Controller{
     
     
     function __construct() {
-     //echo "Hello from Quantum\controller"; n
-        //var_dump($this);
-       // Quantum\Output::initSmarty();
+     
     }
     
     
