@@ -1,18 +1,6 @@
-
-AddType application/x-httpd-php53 .php
-
-
-<IfModule mod_security.c>
-SecFilterEngine Off
-SecFilterScanPOST Off
-</IfModule>
-
 SetEnv TZ America/Chicago
 Options +FollowSymlinks
 RewriteEngine on
-
-
- 
 RewriteBase /
  
 
