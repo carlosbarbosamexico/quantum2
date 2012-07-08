@@ -1,23 +1,27 @@
+
 <?
 
-/**
- * Copyright 2012 Majestic Media
-*/
+/*
+ * class AppController
+ */
 
 class AppController extends Quantum {
     
-   function index() {
-	
-	
-	}
+    /**
+     * Public: index
+    */
+    public function index() {
+      
+      
+    }
+    
+        
+        
+     
     
 }
-  
-  
-  
-    
-    
-    
-   
-    
-}
+
+
+
+?>
+
