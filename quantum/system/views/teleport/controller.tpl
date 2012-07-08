@@ -1,4 +1,3 @@
-
 <?
 
 /*
@@ -58,8 +57,6 @@ class {$controller_name} extends Quantum {
     {/if} 
     
 }
-
-
 
 ?>
 

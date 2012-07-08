@@ -427,9 +427,6 @@ class Quantum  {
         }
       
         
-        //var_dump($c);
-        
-        
 
     }
     

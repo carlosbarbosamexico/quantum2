@@ -6,19 +6,19 @@
 
 class IndexController extends Quantum {
     
-    
-    function index() {
-        
+    /**
+     * Public: index
+    */
+    public function index() {
       
-        
+      
     }
     
-    
-    
         
         
-    
+     
     
 }
 
 ?>
+
