@@ -408,9 +408,4 @@ class Quantum  {
     
     
     
-    
-    
-    
-   
-    
 }
