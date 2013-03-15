@@ -91,16 +91,16 @@ And in your view for example:
 
 While most of it is not documented, it has been working for years in many web apps, particularly facebook apps, which is suited for it nicely.
 
-Full features:
+*Full features:* 
 
-PHP-Activerecord
-Smarty
-Teleport command line tool
-QLoader (javascript loader)
-Quantum Javascript framework, a framework for building huge js apps, really nicely, it automatically compiles tons of js into one single file
-Full featured Template system ($this->setTemplate('something')); just drop a header.tpl and footer.tpl into a directory inside the templates folder.
-Multi sites, (work on staging, dev & production from a single codebase, no hacks required just set up your config/environment.php, works by detecting the current domain so you can work on yousite.dev yoursitestaging.com and yoursiteproduction.com and just git push somewhere)
-Full MVC architecture.
+* PHP-Activerecord
+* Smarty
+* Teleport command line tool
+* QLoader (javascript loader)
+* Quantum Javascript framework, a framework for building huge js apps, really nicely, it automatically compiles tons of js into one single file
+* Full featured Template system ($this->setTemplate('something')); just drop a header.tpl and footer.tpl into a directory inside the templates folder.
+* Multi sites, (work on staging, dev & production from a single codebase, no hacks required just set up your config/environment.php, works by detecting the current domain so you can work on yousite.dev yoursitestaging.com and yoursiteproduction.com and just git push somewhere)
+* Full MVC architecture.
 
 
 Installation:
@@ -110,23 +110,21 @@ Point your website to the webroot folder.
 Configure your db in config/environment.php
 
 
-Have comments, drop a comment at carlosbarbosamexico@gmail.com
-
-
 Development:
 
 Controllers go in: app/controllers 
 Models go in: app/models
-View go in: app/views
+Views go in: app/views
 Filters go in app/filters
 Templates to in app/templates
 Helpers go in app/helpers
 
 index.php is a meta loader, the heavy loading, is done inside quantum.php, this file can be customized to your needs to boot quantum as you may seem fit, it is provided as an example.
 
-it features some stuff for building web apis ultra fast, stuff like Quantum\ApiException::resourceNotFound();
+it features some stuff for building web apis ultra fast, stuff like Quantum\ApiException::resourceNotFound(), and Quantum\ApiOutput::adaptableOutput($array);
 
 I promise some day, if you guys show interest, will improve it and doc it....
 
-
 Cheers, enjoy ultra fast, no compromises web development, now.
+
+Have comments, email them to carlosbarbosamexico@gmail.com
