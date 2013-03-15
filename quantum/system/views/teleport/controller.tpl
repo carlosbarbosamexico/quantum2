@@ -6,7 +6,14 @@
 
 class {$controller_name} extends Quantum {
     
-    /**
+    
+	function __construct() {
+		
+		
+		
+	}
+
+	/**
      * Public: index
     */
     public function index() {
@@ -59,4 +66,3 @@ class {$controller_name} extends Quantum {
 }
 
 ?>
-

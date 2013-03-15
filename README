@@ -1,0 +1,117 @@
+Quantum 2 by Carlos Barbosa
+
+Quantum it's a php framework built for ultra fast web development.
+
+It was built for php programmers who want to get things done fast and well done.
+
+It integrates PHP-Activerecord and Smarty, which make it super powerful.
+
+It features a command line tool for creating models, controllers & views:
+
+For building a controller:
+
+cd quantum/script
+
+./teleport -c name=blog //Teleports a blog controller
+./teleport -m name=post //teleports a post model
+./teleport -v controller=blog action=index // teleport an index view
+
+Controllers are intended to expose the public functions only, so you can get away with:
+
+A full blog controller in 3 mins:
+
+class BlogController
+{
+
+	function __construct()
+	{
+	$this->setTemplate('cms);
+
+	}
+	
+	function index()
+	{
+		$posts = Post::all();
+		
+		$this->set('posts', $posts);
+	
+	}
+	
+	function new()
+	{
+		$this->createPostHook();
+	
+	}
+	
+	function post()
+	{
+		if isset($this->getData['id'])
+		{
+			$post = Post::find_by_id($this->getData['id']);
+			
+			if (empty($post))
+			{
+				redirect_to('/blog');
+				
+			}
+			
+			$this->set('post', $post);
+		}
+	
+	}
+	
+	private function createPostHook()
+	{
+		if (isset($this->postData['title]))
+		{
+		
+			$post = new Post();
+			$post->title = $this->postData['title];
+			$post->save();
+			
+			$this->set('success' 1);
+		
+		}
+		
+	
+	}	
+
+}
+
+And in your view for example:
+
+(app/views/blog/index.tpl);
+
+{section name=posts loop=posts}
+
+{$posts[posts]->title}
+{$posts[posts]->title}
+
+{/section}
+
+While most of it is not documented, it has been working for years in many web apps, particularly facebook apps, which is suited for it nicely.
+
+Full features:
+
+PHP-Activerecord
+Smarty
+Teleport command line tool
+QLoader (javascript loader)
+Quantum Javascript framework, a framework for building huge js apps, really nicely, it automatically compiles tons of js into one single file
+Full featured Template system ($this->setTemplate('something')); just drop a header.tpl and footer.tpl into a directory inside the templates folder.
+Multi sites, (work on staging, dev & production from a single codebase, no hacks required just set up your config/environment.php, works by detecting the current domain so you can work on yousite.dev yoursitestaging.com and yoursiteproduction.com and just git push somewhere)
+Full MVC architecture.
+
+
+Advantages over other frameworks
+
+Installation:
+
+Clone the project into a dir.
+Point your website to the webroot folder.
+Configure your db in config/environment.php
+
+
+Have comments, drop a comment at carlosbarbosamexico@gmail.com
+
+Cheers, enjoy ultra fast, no compromises web development, now.

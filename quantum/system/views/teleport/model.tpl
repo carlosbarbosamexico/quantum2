@@ -5,13 +5,13 @@
 */
 class {$model_name} extends ActiveRecord\Model { 
 
-  /**
-     * Public: index
-    */
-    public function index() {
-      
-      
-    }
+  	//static $table_name = '{$model_name}';
+
+    /*static $belongs_to = array(
+      array('user', 'class_name' => 'User', 'foreign_key' => 'user_id')
+    ); */
+
+
     
     {if isset($public_functions)}
     {foreach from=$public_functions item=public_function}
@@ -56,6 +56,5 @@ class {$model_name} extends ActiveRecord\Model {
     {/if} 
 
 }
-
 
 ?>

@@ -76,6 +76,19 @@ class Utilities {
 	exit();
     }
     
+    function base64_url_encode($input) {
+	return strtr(base64_encode($input), '+/=', '-_,');
+    }
+
+    function base64_url_decode($input) {
+       return base64_decode(strtr($input, '-_,', '+/='));
+    }
+    
+    function validateEmail( $email ){
+	return filter_var( $email, FILTER_VALIDATE_EMAIL );
+    }
+
+    
     
     
 }
