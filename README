@@ -20,7 +20,7 @@ Controllers are intended to expose the public functions only, so you can get awa
 
 A full blog controller in 3 mins:
 
-class BlogController
+class BlogController extends Quantum
 {
 
 	function __construct()
@@ -118,6 +118,8 @@ Views go in: app/views
 Filters go in app/filters
 Templates to in app/templates
 Helpers go in app/helpers
+
+Point your browser to /tests so you can see what methods the controller will inherit after boot.
 
 index.php is a meta loader, the heavy loading, is done inside quantum.php, this file can be customized to your needs to boot quantum as you may seem fit, it is provided as an example.
 
